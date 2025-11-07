@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.newsletter form');
     const emailInput = document.querySelector('#email');
     const messageDiv = document.querySelector('.message');
+    
+    // Array to store previously submitted email addresses
+    const submittedEmails = [];
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form from submitting normally
@@ -11,9 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = emailInput.value.trim();
         
         if (email === '') {
-            messageDiv.textContent = 'Please enter a valid email address.';
+            const errorMessage = 'Please enter a valid email address.';
+            messageDiv.textContent = errorMessage;
+            alert(errorMessage);
+        } else if (submittedEmails.includes(email.toLowerCase())) {
+            const duplicateMessage = `This email address ${email} has already been added to our mailing list.`;
+            messageDiv.textContent = duplicateMessage;
+            alert(duplicateMessage);
         } else {
-            messageDiv.textContent = `Thank you! Your email address ${email} has been added to our mailing list!`;
+            // Add email to the submitted emails array
+            submittedEmails.push(email.toLowerCase());
+            const successMessage = `Thank you! Your email address ${email} has been added to our mailing list!`;
+            messageDiv.textContent = successMessage;
+            alert(successMessage);
         }
     });
 });

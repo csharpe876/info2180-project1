@@ -93,7 +93,7 @@ header nav a:hover {
 .learn-about h2 {
     font-size: 24px;
     color: #48BB78;
-    text-align: center;
+    text-align: left;
     margin: 0 0 60px 0;
 }
 
@@ -112,9 +112,9 @@ header nav a:hover {
 }
 
 .card img {
-    width: 100%;
-    height: auto;
-    max-width: 200px;
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
     margin-bottom: 20px;
 }
 
@@ -199,9 +199,10 @@ header nav a:hover {
 }
 
 .stories img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
+    object-position: center;
     border-radius: 50%;
     flex-shrink: 0;
 }
